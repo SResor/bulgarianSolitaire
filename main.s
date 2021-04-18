@@ -16,7 +16,10 @@ main:
 	push	{fp, lr}		@ Pushes fp and lr onto the stack
 	add 	fp, sp, #4		@ Adds 4 to sp and stores it in fp
 
-	mov	r0, #47			@ Moves the size of the array (45) + 2 into r0
+	sub	sp, sp, #8		@ Moves the stack pointer down two memory addresses
+	mov	r9, sp			@ Moves the address of the pile counter into r9
+
+	mov	r0, #45			@ Moves the size of the array (45) + 2 into r0
 	mov	r0, r0, LSL #2		@ Multiplies r0 by 4 and moves that into r0
 					 @ This is the amount of memory needed
 	sub	sp, sp, r0		@ Moves the stack pointer to point to the start of the array
