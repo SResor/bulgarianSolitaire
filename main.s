@@ -24,3 +24,6 @@ main:
   	mov	  r0, #0		@ Moves #0 into r0. This is the current number of piles
 	str	  r0, [fp, #-12]	@ Stores array size into second available memory address	
 	ldr	  r1, [fp, #-12]	@ Loads the number of piles into r1
+	
+	bl	time			@ Gets time from clock
+	bl	srand			@ Sets seed for srand
