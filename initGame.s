@@ -9,7 +9,7 @@
 
 .text
 .align 2
-.global randomNumber
+.global initGame
 .syntax unified
 .type initGame, %function
 
