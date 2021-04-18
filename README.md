@@ -14,4 +14,3 @@ The program will produce a random starting configuration and then print it. It w
 - `printPiles.s`: Prints the size of each pile.
 - `finalConfig.s`: Checks whether the final configuration of piles has been reached.
 - `modulo.s`: Performs the modulo of two numbers passed to it.
-- `randomNumber.s`: Computes a random number between 1 and the number passed as a parameter.
