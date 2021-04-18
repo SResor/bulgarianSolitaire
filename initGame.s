@@ -1,6 +1,6 @@
 @ initGame.s
-@ This function generates a random number, modulos it with 11, adds 2 to it, and 
- @ then returns it to the calling program.
+@ This function initializes the game of Bulgarian Solitaire by dividing the
+ @ deck of 45 cards into separate piles
 
 .cpu cortex-a53
 .fpu neon-fp-armv8
