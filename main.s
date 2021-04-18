@@ -1,5 +1,5 @@
 @ Main.s
-@ 
+@ This program simulates the game of Bulgarian Solitaire with a 45 card deck.
 
 .cpu cortex-a53
 .fpu neon-fp-armv8
