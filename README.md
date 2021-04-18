@@ -8,8 +8,8 @@ Master File for the `bulgarianSolitaire` Assembly Language program. The game run
 The program will produce a random starting configuration and then print it. It will then keep playing rounds while print the results of each round. When the final configuration described above is reached, it will stop and print the results.
 
 `bulgarianSolitaire` Files:
-- `main`: Initializes the array for storing the pile sizes and then calls several helper functions.
-- `initialize`: Produces the random starting configuration for the game.
-- `playRound`: Runs one round of the Bulgarian Solitaire game.
-- `printPiles`: Prints the size of each pile.
-- `finalConfig`: Checks whether the final configuration of piles has been reached.
+- `main.s`: Initializes the array for storing the pile sizes and then calls several helper functions.
+- `initialize.s`: Produces the random starting configuration for the game.
+- `playRound.s`: Runs one round of the Bulgarian Solitaire game.
+- `printPiles.s`: Prints the size of each pile.
+- `finalConfig.s`: Checks whether the final configuration of piles has been reached.
