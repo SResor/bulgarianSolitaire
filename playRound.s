@@ -3,7 +3,7 @@
  @ It does this by removing one card from each of the piles and creates
  @ a new pile with those cards.
  
- .cpu cortex-a53
+.cpu cortex-a53
 .fpu neon-fp-armv8
 
 .data
