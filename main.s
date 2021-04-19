@@ -33,3 +33,21 @@ main:
 	bl	srand			@ Sets seed for srand
 	
 	mov	r8, #0			@ Moves 0 into r8. This is a sentinel value for our main loop
+	
+	bl	printPiles		@ Branches to printPiles.s to print the number of cards in each pile
+	
+loop1:
+	cmp	r8, #1			@ Compares sentinel value (r8) to 1
+	beq	outloop1		@ If they are equal, exits the loop
+	
+	bl	playRound		@ Branches to playRound.s
+	bl	checkPiles		@ Branches to checkPiles.s
+	bl	printPiles		@ Branches to printPiles.s
+	bl	finalConfig		@ Branches to finalConfig.s
+	bl	loop1			@ Branches back to the start of the loop
+	
+outloop1:
+	bl	printPiles		@ Branches to printPiles.s, which prints the final configuration
+	
+	sub 	sp, fp, #4		@ Moves down one memory location from fp and stores it in sp
+	pop 	{fp, pc}		@ Pops fp and pc from the stack
