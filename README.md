@@ -9,8 +9,9 @@ The program will produce a random starting configuration and then print it. It w
 
 `bulgarianSolitaire` Files:
 - `main.s`: Initializes the array for storing the pile sizes and then calls several helper functions.
+- `checkPiles.s`: Checks whether any piles are empty and adjusts array if so.
+- `finalConfig.s`: Checks whether the final configuration of piles has been reached.
 - `initGame.s`: Produces the random starting configuration for the game.
+- `modulo.s`: Performs the modulo of two numbers passed to it.
 - `playRound.s`: Runs one round of the Bulgarian Solitaire game.
 - `printPiles.s`: Prints the size of each pile.
-- `finalConfig.s`: Checks whether the final configuration of piles has been reached.
-- `modulo.s`: Performs the modulo of two numbers passed to it.
