@@ -31,3 +31,5 @@ main:
 	
 	bl	time			@ Gets time from clock
 	bl	srand			@ Sets seed for srand
+	
+	mov	r8, #0			@ Moves 0 into r8. This is a sentinel value for our main loop
