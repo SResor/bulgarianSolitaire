@@ -28,7 +28,7 @@ printPiles:
 loop1:
 	cmp	r4, r6			@ Compares r4 and r6
 	bge	outloop1		@ If r4 is greater than or equal to r6, exits the loop
-	ldr	r1, [r10, r5]		@ Loads the number sorted in the relevant array index address into r1
+	ldr	r1, [r10, r5]		@ Loads the number stored in the relevant array index address into r1
 	bl	printf			@ Branches to printf
 	
 	add	r4, r4, #1		@ Increments r4 by 1
