@@ -20,7 +20,7 @@ checkPiles:
 	mov	r4, #0			@ Moves 0 into r4, our iterator register
 	mov	r5, #0			@ Moves 0 into r5, our iterator address location register
 	ldr	r6, [r9]		@ Loads the number of card piles into r6
-	mov	r7, r6 LSL #2		@ Moves r6 * 4 into r7, the address where the last array index is stored
+	mov	r7, r6, LSL #2		@ Moves r6 * 4 into r7, the address where the last array index is stored
 	mov	r2, #0			@ Moves 0 into r2
 	
 loop1:
