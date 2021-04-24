@@ -19,13 +19,15 @@ initGame:
 
 	mov	r4, #0			@ Moves #0 into r4
 	mov	r5, #0			@ Moves #0 into r5
+	mov	r3, #46
 
 loop1:
-	cmp	r4, 46			@ Compares the value stored in r4 to 46
+	cmp	r4, r3			@ Compares the value stored in r4 to 46
 	bge	outloop1		@ If r4 is greater than or equal to 46, exits loop
 	mov	r0, #0			@ Stores #0 into r0
 	bl	rand			@ Generates random number
-	sub	r2, #46, r4		@ Subtracts r4 from 46 and moves it into r5
+	mov	r0, r4
+	sub	r2, r3, r4		@ Subtracts r4 from 46 and moves it into r5
 	bl	modulo			@ Calls the modulo.s function
 	
 	add	r0, r0, #1		@ Adds 1 to the number returned by modulo.s
