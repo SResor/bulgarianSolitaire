@@ -7,6 +7,7 @@
 .data
 	output: .asciz "\nThe piles are:\n"
 	pile: 	.asciz "%d, "
+	newline: .asciz "\n"
 
 .text
 .align 2
@@ -41,4 +42,3 @@ outloop1:
 
 	sub 	sp, fp, #4		@ Moves down one memory location from fp and stores it in sp
 	pop 	{fp, pc}		@ Pops fp and pc from the stack
-	
