@@ -9,7 +9,7 @@
 
 .text
 .align 2
-.global checkPiles
+.global finalConfig
 .syntax unified
 .type finalConfig, %function
 
