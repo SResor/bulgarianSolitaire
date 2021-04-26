@@ -24,9 +24,12 @@ checkPiles:
 	mov	r2, #0			@ Moves 0 into r2
 	
 loop1:
+	cmp	r4, r6			@ Compares r4 to number of piles
+	bge	outloop1		@ If r4 is greater than or equal to number of piles, exit loop
+	
 	ldr	r0, [r10, r5]		@ Loads the number stored in the relevant array index address into r0
 	cmp	r0, #0			@ Compares r0 to 0
-	bne	outloop1		@ If they are not equal, exits the loop
+	bne	outloop2		@ If they are not equal, exits the loop
 	ldr	r1, [r10, r7]		@ Loads the value at the end of the array into r1
 	str	r2, [r10, r7]		@ Places the value in r2 at the end of the array
 	str	r1, [r10, r5]		@ Stores the value in r1 into the array index address being considered
@@ -34,6 +37,8 @@ loop1:
 	add	r5, r5, #4		@ Increments r4 by 4, our iterator address location register
 	sub	r6, r6, #1		@ Decrements r6 by 1, the number of card piles
 	sub	r7, r7, #4		@ Decrements r7 by 4, the address where the last array index is stored
+	
+	outloop2:
 	bl	loop1			@ Branches back to the start of the loop
 	
 outloop1:
