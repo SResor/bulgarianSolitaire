@@ -40,7 +40,7 @@ skipSwap:
 	
 endWhile:
 	cmp	r4, r6			@ Compares the iterator (r4) to the number of piles (r6)
-	bne	doneRemoveZero		@ If they're not equal, skips code
+	beq	doneRemoveZero		@ @@@@@If they're not equal, skips code
 	
 	mov	r5, r4, LSL #2		@ Stores the address of the array index into r5
 	ldr	r3, [r10, r5]		@ Stores the value at the proper array index into r3
