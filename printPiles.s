@@ -24,9 +24,9 @@ printPiles:
 	ldr	r6, [r9]		@ Loads the number of card piles into r6
 	ldr	r0, =output		@ Loads the output message into r0
 	bl	printf			@ Branches to printf
-	ldr	r0, =pile		@ Loads the pile message into r0
 	
 loop1:
+	ldr	r0, =pile		@ Loads the pile message into r0
 	cmp	r4, r6			@ Compares r4 and r6
 	bge	outloop1		@ If r4 is greater than or equal to r6, exits the loop
 	ldr	r1, [r10, r5]		@ Loads the number stored in the relevant array index address into r1

@@ -15,3 +15,6 @@ The program will produce a random starting configuration and then print it. It w
 - `modulo.s`: Performs the modulo of two numbers passed to it.
 - `playRound.s`: Runs one round of the Bulgarian Solitaire game.
 - `printPiles.s`: Prints the size of each pile.
+
+Current outputs:
+![BS Current Outputs](https://user-images.githubusercontent.com/82683346/115940606-0d77d800-a457-11eb-848a-648dbf0345da.png)

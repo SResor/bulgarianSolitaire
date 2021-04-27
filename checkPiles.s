@@ -25,9 +25,10 @@ checkPiles:
 	
 loop1:
 	cmp	r4, r6			@ Compares r4 to number of piles
+
 	bge	outloop1		@ If r4 is greater than or equal to number of piles, exit loop
-	
-	ldr	r0, [r10, r5]		@ Loads the number stored in the relevant array index address into r0
+
+  ldr	r0, [r10, r5]		@ Loads the number stored in the relevant array index address into r0
 	cmp	r0, #0			@ Compares r0 to 0
 	bne	outloop2		@ If they are not equal, exits the loop
 	ldr	r1, [r10, r7]		@ Loads the value at the end of the array into r1
@@ -41,9 +42,11 @@ loop1:
 	outloop2:
 	add	r4, r4, #1		@ Increments r4 by 1, our iterator
 	add	r5, r5, #4		@ Increments r4 by 4, our iterator address location register
-	bl	loop1			@ Branches back to the start of the loop
+
+  bl	loop1			@ Branches back to the start of the loop
 	
 outloop1:
+	add	r6, r6, #1
 	str	r6, [r9]		@ Stores the value in r6 into the address in r9
 	
 	sub 	sp, fp, #4		@ Moves down one memory location from fp and stores it in sp
