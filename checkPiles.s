@@ -43,9 +43,9 @@ endWhile:
 	bne	doneRemoveZero		@ If they're not equal, skips code
 	
 	mov	r5, r4, LSL #2		@ Stores the address of the array index into r5
-	ldr	r5, [r10, r5]		@ Stores the value at the proper array index into r5
-	cmp	r5, #0			@ Compares the value in r5 to #0
-	bne	doneRemoveZero
+	ldr	r3, [r10, r5]		@ Stores the value at the proper array index into r3
+	cmp	r3, #0			@ Compares the value in r3 to #0
+	bne	doneRemoveZero		@ Skips next line of code
 	
 	sub	r6, r6, #1		@ Decrements r6 by 1
 	
