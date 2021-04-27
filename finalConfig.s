@@ -21,166 +21,39 @@ finalConfig:
 	cmp	r6, #9			@ Compares the value in r6 to 9
 	bne	nextRound		@ If they are not equal, leave sentinel value as is
 	
-	ldr	r0, [r10]		@ Loads the first array index value into r0
-	ldr	r1, [r10, #4]		@ Loads the second array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
+	mov	r0, #0			@ Moves #0 into r0
+	mov	r2, #9			@ Moves #1 into r2
+	mov	r7, #8
 	
-	ldr	r1, [r10, #8]		@ Loads the third array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
+loop1:
+	sub	r2, r6, r7		@ Subtracts value in r7 from r6 and stores it in r2
+	mov	r1, r0, LSL #2		@ Moves address location offset into r1
+	ldr	r4, [r10, r1]		@ Stores value in array into r4
+
+	loop2:
+		cmp	r2, #9		@ Compares r2 to #9
+		bge	exitLoop2	@ If r2 is greater than or equal to 9, exit secondary loop
+		
+		mov	r3, r2, LSL #2	@ Moves address location offset into r3
+		ldr	r5, [r10, r3]	@ Stores second value in array into r5
+		
+		cmp	r4, r5		@ Compares the two values
+		beq	nextRound	@ If they're equal, moves on to the next round
+		
+		add	r2, r2, #1	@ Increments r2 by 1
+		bl	loop2		@ Returns to start of secondary loop
+		
+exitLoop2:
+	add	r0, r0, #1		@ Increments r0 by 1
+	sub	r7, r7, #1		@ Decrements r7 by 1
 	
-	ldr	r1, [r10, #12]		@ Loads the fourth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
+	cmp	r0, #9			@ Compares the value in r0 to #9
+	bge	finalConfigFound	@ If r0 is greater than or equal to #9, exit loop and set sentinel value
+	bl	loop1			@ Returns to the start of the primary loop
 	
-	ldr	r1, [r10, #16]		@ Loads the fifth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #20]		@ Loads the sixth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #24]		@ Loads the seventh array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #28]		@ Loads the eighth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #32]		@ Loads the ninth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	
-	ldr	r0, [r10, #4]		@ Loads the second array index value into r0
-	ldr	r1, [r10, #8]		@ Loads the third array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #12]		@ Loads the fourth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #16]		@ Loads the fifth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #20]		@ Loads the sixth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #24]		@ Loads the seventh array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #28]		@ Loads the eighth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #32]		@ Loads the ninth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	
-	ldr	r0, [r10, #8]		@ Loads the third array index value into r0
-	ldr	r1, [r10, #12]		@ Loads the fourth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #16]		@ Loads the fifth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #20]		@ Loads the sixth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #24]		@ Loads the seventh array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #28]		@ Loads the eighth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #32]		@ Loads the ninth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	
-	ldr	r0, [r10, #12]		@ Loads the fourth array index value into r0
-	ldr	r1, [r10, #16]		@ Loads the fifth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #20]		@ Loads the sixth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #24]		@ Loads the seventh array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #28]		@ Loads the eighth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #32]		@ Loads the ninth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	
-	ldr	r0, [r10, #16]		@ Loads the fifth array index value into r0
-	ldr	r1, [r10, #20]		@ Loads the sixth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #24]		@ Loads the seventh array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #28]		@ Loads the eighth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #32]		@ Loads the ninth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	
-	ldr	r0, [r10, #20]		@ Loads the sixth array index value into r0
-	ldr	r1, [r10, #24]		@ Loads the seventh array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #28]		@ Loads the eighth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #32]		@ Loads the ninth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	
-	ldr	r0, [r10, #24]		@ Loads the seventh array index value into r0
-	ldr	r1, [r10, #28]		@ Loads the eighth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	ldr	r1, [r10, #32]		@ Loads the ninth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
-	
-	ldr	r0, [r10, #28]		@ Loads the eighth array index value into r0
-	ldr	r1, [r10, #32]		@ Loads the ninth array index value into r1
-	cmp	r0, r1			@ Compares r0 to r1
-	beq	nextRound		@ If they are equal, leaves sentinel value as is
-	
+finalConfigFound:
 	mov	r8, #1			@ Changes sentinel value to exit the loop in main.s
+
 nextRound:
 
 	sub 	sp, fp, #4		@ Moves down one memory location from fp and stores it in sp
