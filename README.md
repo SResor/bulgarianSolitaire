@@ -17,5 +17,6 @@ The program will produce a random starting configuration and then print it. It w
 - `printPiles.s`: Prints the size of each pile.
 
 Successful output:
+
 ![Bulgarian Solitaire Output](https://user-images.githubusercontent.com/82683346/116360605-f4ec2280-a7b4-11eb-9163-93e920cfdd0f.png)
 
