@@ -5,9 +5,10 @@
 .fpu neon-fp-armv8
 
 .data
-	output: .asciz "\nThe piles are:\n"
-	pile: 	.asciz "%d, "
-	newline: .asciz "\n"
+	finalConfig:	.asciz "\nThe final configuration of the piles is:\n"
+	notFinal: 	.asciz "\nThe piles are:\n"
+	pile: 		.asciz "%d, "
+	newline: 	.asciz "\n"
 
 .text
 .align 2
@@ -22,9 +23,19 @@ printPiles:
 	mov	r4, #0			@ Moves 0 into r4
 	mov	r5, #0			@ Moves 0 into r5
 	ldr	r6, [r9]		@ Loads the number of card piles into r6
-	ldr	r0, =output		@ Loads the output message into r0
-	bl	printf			@ Branches to printf
 	
+	cmp	r8, #1			@ Checks whether sentinel value has been triggered
+	bne	notFinalConfig		@ If it hasn't, jumps past final configuration message
+	ldr	r0, =finalConfig	@ If it has, loads final configuration header into r0
+	bl	printf			@ Branches to printf
+	bl	finalConfigFound	@ Jumps past non-final configration message
+	
+notFinalConfig:
+	ldr	r0, =notFinal		@ Loads the output message into r0
+	bl	printf			@ Branches to printf
+
+finalConfigFound:
+
 loop1:
 	ldr	r0, =pile		@ Loads the pile message into r0
 	cmp	r4, r6			@ Compares r4 and r6
