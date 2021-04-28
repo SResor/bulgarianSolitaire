@@ -8,7 +8,7 @@
 	finalConfig:	.asciz "\nThe final configuration of the piles is:\n"
 	notFinal: 	.asciz "\nThe piles are:\n"
 	pile: 		.asciz "%d, "
-	newline: 	.asciz "\n"
+	lastPile:	.asciz "%d\n"
 
 .text
 .align 2
@@ -20,7 +20,7 @@ printPiles:
 	push	{fp, lr}		@ Pushes fp and lr onto the stack
 	add 	fp, sp, #4		@ Adds 4 to sp and stores it in fp
 	
-	mov	r4, #0			@ Moves 0 into r4
+	mov	r4, #1			@ Moves 1 into r4
 	mov	r5, #0			@ Moves 0 into r5
 	ldr	r6, [r9]		@ Loads the number of card piles into r6
 	
@@ -48,7 +48,8 @@ loop1:
 	bl	loop1			@ Returns to the start of the loop
 	
 outloop1:
-	ldr	r0, =newline		@ Loads a newline into r0 for ease of reading
+	ldr	r0, =lastPile		@ Loads last pile message into r0
+	ldr	r1, [r10, r5]		@ Loads index value into r1
 	bl	printf			@ Branches to printf
 
 	sub 	sp, fp, #4		@ Moves down one memory location from fp and stores it in sp
