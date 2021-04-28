@@ -16,7 +16,6 @@ The program will produce a random starting configuration and then print it. It w
 - `playRound.s`: Runs one round of the Bulgarian Solitaire game.
 - `printPiles.s`: Prints the size of each pile.
 
-Successful output:
+A sample output for this program can be seen below:
 
 ![Bulgarian Solitaire Output](https://user-images.githubusercontent.com/82683346/116360605-f4ec2280-a7b4-11eb-9163-93e920cfdd0f.png)
-
