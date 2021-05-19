@@ -22,20 +22,20 @@ finalConfig:
 	bne	nextRound		@ If they are not equal, leave sentinel value as is
 	
 	mov	r0, #0			@ Moves #0 into r0
-	mov	r2, #9			@ Moves #1 into r2
+	mov	r2, #9			@ Moves #9 into r2
 	mov	r7, #8
 	
 loop1:
 	sub	r2, r6, r7		@ Subtracts value in r7 from r6 and stores it in r2
 	mov	r1, r0, LSL #2		@ Moves address location offset into r1
-	ldr	r4, [r10, r1]		@ Stores value in array into r4
+	ldr	r4, [r10, r1]		@ Loads value in array into r4
 
 	loop2:
 		cmp	r2, #9		@ Compares r2 to #9
 		bge	exitLoop2	@ If r2 is greater than or equal to 9, exit secondary loop
 		
 		mov	r3, r2, LSL #2	@ Moves address location offset into r3
-		ldr	r5, [r10, r3]	@ Stores second value in array into r5
+		ldr	r5, [r10, r3]	@ Loads second value in array into r5
 		
 		cmp	r4, r5		@ Compares the two values
 		beq	nextRound	@ If they're equal, moves on to the next round
