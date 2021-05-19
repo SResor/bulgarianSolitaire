@@ -23,7 +23,7 @@ finalConfig:
 	
 	mov	r0, #0			@ Moves #0 into r0
 	mov	r2, #9			@ Moves #9 into r2
-	mov	r7, #8
+	mov	r7, #8			@ Moves #8 into r7
 	
 loop1:
 	sub	r2, r6, r7		@ Subtracts value in r7 from r6 and stores it in r2
